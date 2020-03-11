@@ -95,6 +95,7 @@
             <li class="active"><a href="" title="TRANG CHỦ">TRANG CHỦ</a></li>
             <li><a href="auth/huong-dan" title="HƯỚNG DẪN">HƯỚNG DẪN</a></li>
             <li><a onclick='(notiLogin())' title="NẠP THẺ">NẠP TIỀN</a></li>
+            <li><a href title="NẠP THẺ" data-toggle="modal" data-target="#modalPayCard" >NẠP THẺ</a></li>
             <li class=""><a href="auth/uy-tin-shop" title="THÔNG TIN SHOP">UY TÍN SHOP</a></li>
             <li><a href="https://www.facebook.com/Shop-Li%C3%AAn-Qu%C3%A2n-Kinas-1921908651207607" target='_blank' title="FB PAGE">Facebook Admin</a></li>
         </ul>
@@ -371,6 +372,73 @@
     </div>
   </div>
 </div>
+<!-- Nạp Thẻ -->
+<div class="modal fade" id="modalPayCard" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document" style="max-width: 400px;">
+    <div class="modal-content">
+      <div class="modal-header text-center" style="height: 50px;background: #337ab7;">
+        <h4 class="" style="color: white;">NẠP TIỀN
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="color: red;float:right;">×</span>
+            </button>
+        </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <!-- <form method="post" action="auth/loginNormal"> -->
+            <div class="modal-body mx-3">
+                                <div class="md-form mb-5">
+                  <br>
+                  <label data-error="wrong" data-success="right" for="usernameRegister" >Loại Thẻ :</label>
+                  <select class="form-control" name="card_type" id="card_type">
+                    <option value="">Chọn loại thẻ</option>
+                    <option value="VTT">Viettel</option>
+                    <option value="VMS">Mobifone</option>
+                    <option value="VNP">Vinaphone</option>
+                  </select>
+                </div>
+                
+                <div class="md-form mb-5">
+                  <br>
+                  <label data-error="wrong" data-success="right" for="card_amount">Mệnh Giá :</label>
+                  <select class="form-control" name="card_amount" id="card_amount">
+                        <option value="">Chọn mệnh giá</option>
+                        <option value="10000">10.000</option>
+                        <option value="20000">20.000</option>
+                        <option value="30000">30.000</option>
+                        <option value="50000">50.000</option>
+                        <option value="100000">100.000</option>
+                        <option value="200000">200.000</option>
+                        <option value="300000">300.000</option>
+                        <option value="500000">500.000</option>
+                        <option value="1000000">1.000.000</option>
+                  </select>
+                </div>
+                
+                <div class="md-form mb-4">
+                  <br>
+                  <label data-error="wrong" data-success="right" for="serial">Số Seri :</label>
+                  <input type="password" name="password" required class="form-control validate" value="" id="serial">
+                </div>
+                
+                <div class="md-form mb-4">
+                  <br>
+                  <label data-error="wrong" data-success="right" for="pin">Mã Thẻ</label>
+                  <input type="password" name="repassword" required class="form-control validate" value="" id="pin">
+                </div>
+                
+            </div>
+            <input type="hidden" name="type" value="2">
+            <div class="modal-footer d-flex justify-content-center">
+                <button type="submit" class="btn btn-default" id="submitPay">Nạp Tiền</button>
+            </div>
+      <!-- </form> -->
+    </div>
+  </div>
+</div>
+<!-- End Nạp Thẻ -->
 
 <div class="sl-search">
     <div class="container">

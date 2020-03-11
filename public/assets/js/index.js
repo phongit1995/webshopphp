@@ -84,6 +84,73 @@ $(document).ready(function(){
             }
         })
     })
+    $("#submitPay").click(function(){
+        console.log('phong');
+        let card_type= $("#card_type").val();
+        let card_amount= $("#card_amount").val();
+        let serial= $("#serial").val();
+        let pin= $("#pin").val();
+        if(card_type==""){
+            return swal({
+                icon: 'error',
+                title: 'Lỗi !!!',
+                text: 'Vui Lòng Chọn Loại Thẻ!',
+              })
+        }
+        if(card_amount==""){
+            return swal({
+                icon: 'error',
+                title: 'Lỗi !!!',
+                text: 'Vui Lòng Chọn Mệnh Giá!',
+              })
+        }
+        if(serial==""){
+            return swal({
+                icon: 'error',
+                title: 'Lỗi !!!',
+                text: 'Vui Lòng Nhập Số Seri!',
+              })
+        }
+        if(pin==""){
+            return swal({
+                icon: 'error',
+                title: 'Lỗi !!!',
+                text: 'Vui Lòng Nhập Mã Thẻ!',
+              })
+        }
+        console.log(card_type,card_amount,serial,pin);
+        $.ajax({
+            url:"paycard.php",
+            type:"post",
+            data:{
+                card_type,
+                card_amount,
+                serial,
+                pin
+            },
+            success:function(data){
+                let result = JSON.parse(data);
+                if(result.error){
+                    swal({
+                        icon: 'error',
+                        title: 'Lỗi !!!',
+                        text: result.error,
+                      })
+                }else{
+                    swal({
+                        icon: 'error',
+                        title: 'Thành Công !!!',
+                        text: ' Nạp Thành Công',
+                      })
+                    //   location.reload();
+                }
+                $("#card_type").val("");
+                $("#card_amount").val("");
+                $("#serial").val("");
+                $("#pin").val("");
+            }
+        })
+    })
     $('#passwordLogin').on('keydown', function(e) {
         if (e.which == 13) {
             $("#submitlogin").click();
