@@ -93,9 +93,19 @@
         <a class="sl-logo" href="" title="Trang chủ"><img src="public/logo365.png" alt=""></a>
         <ul class="sl-menu clearfix">
             <li class="active"><a href="" title="TRANG CHỦ">TRANG CHỦ</a></li>
+            <?php
+              if( isset ($_SESSION['username'])){
+                echo('<li><a href title="NẠP THẺ" data-toggle="modal" data-target="#modalPayCard" >NẠP TIỀN</a></li>');
+              }
+              else {
+                echo(
+                  '<li><a onclick="(notiLogin())" title="NẠP THẺ">NẠP TIỀN</a></li>'
+                );
+              }
+            ?>
             <li><a href="auth/huong-dan" title="HƯỚNG DẪN">HƯỚNG DẪN</a></li>
-            <li><a onclick='(notiLogin())' title="NẠP THẺ">NẠP TIỀN</a></li>
-            <li><a href title="NẠP THẺ" data-toggle="modal" data-target="#modalPayCard" >NẠP THẺ</a></li>
+            
+            
             <li class=""><a href="auth/uy-tin-shop" title="THÔNG TIN SHOP">UY TÍN SHOP</a></li>
             <li><a href="https://www.facebook.com/Shop-Li%C3%AAn-Qu%C3%A2n-Kinas-1921908651207607" target='_blank' title="FB PAGE">Facebook Admin</a></li>
         </ul>
